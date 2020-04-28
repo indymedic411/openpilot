@@ -141,8 +141,8 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.18], [0.015]]  # community tuning
       ret.lateralTuning.pid.kf = 0.00012  # community tuning
 
-    elif candidate == CAR.AVALON:
-      stop_and_go = False
+    elif candidate in [CAR.AVALON, CAR.AVALONH]:
+      stop_and_go = True if (candidate in CAR.AVALONH) else False
       ret.safetyParam = 73
       ret.wheelbase = 2.82
       ret.steerRatio = 14.8 #Found at https://pressroom.toyota.com/releases/2016+avalon+product+specs.download
